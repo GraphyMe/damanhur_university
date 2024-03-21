@@ -1,21 +1,22 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ar">
 
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Damanhur University</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>جامعة دمنهور</title>
   <style>
     body {
       font-family: Arial, sans-serif;
       margin: 0;
       padding: 0;
       background-color: #f0f0f0;
+      direction: rtl;
     }
 
     header {
-      background-color: #00ffff;
-      color: #000000;
+      background-color: #333;
+      color: #fff;
       padding: 20px;
       text-align: center;
     }
@@ -31,18 +32,19 @@
       background-color: #fff;
       border-radius: 8px;
       box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+      text-align: right;
     }
 
-    .file-list {
+    .folder-list {
       list-style-type: none;
       padding: 0;
     }
 
-    .file-list li {
+    .folder-list li {
       margin-bottom: 10px;
     }
 
-    .file-list li a {
+    .folder-list li a {
       display: block;
       padding: 10px;
       background-color: #eee;
@@ -51,52 +53,59 @@
       color: #333;
     }
 
-    .file-list li a:hover {
+    .folder-list li a:hover {
       background-color: #ddd;
     }
 
-    <img src="logo.png" alt="Damanhur University Logo">
+    .file-list {
+      display: none;
+      padding-left: 20px;
+    }
+
+    .file-list li {
+      margin-bottom: 5px;
+    }
   </style>
 </head>
 
 <body>
+
   <header>
-    <h1>مرحبا في جامعه دمنهور</h1>
+    <h1>مرحبًا بكم في جامعة دمنهور</h1>
   </header>
 
   <div class="container">
-    <h2>التقييم الارشادي</h2>
-    <ul class="file-list">
-      <li><a href="IMG20240320135302.pdf" download>التقييم والمتابعه في العمل الارشادي</a></li>
-      <li>
-        <a href="علم النفس الارشادي.pdf" download>علم النفس الارشادي</a>
-      </li>
-      <li>
-        <a href="IMG20240320131856.pdf" download>الاطار النظري والاستعراض المرجعي</a>
-      </li>
-      <li>
-        <a href="IMG20240320134211.pdf" download>اسس ومبادي التقييم والمتابعه في عمليه التدريب</a>
-      </li>
-      <li>
-        <a href="IMG20240320142245.pdf" download>التقويم الارشاد الزراعي</a>
-      </li>
-      <li>
-        <a href="IMG20240320143624.pdf" download>تقويم البرامج التدريبية</a>
-      </li>
-      <li>
-        <a href="IMG20240320142430.pdf" download>مفهوم التقييم</a>
-      </li>
-      <li>
-        <a href="IMG20240320144209.pdf" download>مجالات التفييم الارشادي</a>
-      </li>
-      <li>
-        <a href="IMG20240320144820.pdf" download>تقييم البرامج التدريبيه ومتابعتها</a>
-      </li>
-      <li>
-        <a href="IMG20240320144601.pdf" download>تقييم البرامج الارشاديه</a>
+    <ul class="folder-list">
+      <li><a href="#">التقييم الإرشادي</a>
+        <ul class="file-list">
+          <li><a href="IMG20240320135302.pdf" download>التقييم والمتابعة في العمل الإرشادي</a></li>
+          <li><a href="علم النفس الإرشادي.pdf" download>علم النفس الإرشادي</a></li>
+          <li><a href="IMG20240320131856.pdf" download>الإطار النظري والاستعراض المرجعي</a></li>
+          <li><a href="IMG20240320134211.pdf" download>أسس ومبادئ التقييم والمتابعة في عملية التدريب</a></li>
+          <li><a href="IMG20240320142245.pdf" download>التقويم الإرشاد الزراعي</a></li>
+          <li><a href="IMG20240320143624.pdf" download>تقويم البرامج التدريبية</a></li>
+          <li><a href="IMG20240320142430.pdf" download>مفهوم التقييم</a></li>
+          <li><a href="IMG20240320144209.pdf" download>مجالات التقييم الإرشادي</a></li>
+          <li><a href="IMG20240320144820.pdf" download>تقييم البرامج التدريبية ومتابعتها</a></li>
+          <li><a href="IMG20240320144601.pdf" download>تقييم البرامج الإرشادية</a></li>
+        </ul>
       </li>
     </ul>
   </div>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      var folders = document.querySelectorAll('.folder-list > li > a');
+      folders.forEach(function (folder) {
+        folder.addEventListener('click', function (event) {
+          event.preventDefault();
+          var fileList = this.nextElementSibling;
+          fileList.style.display = fileList.style.display === 'none' ? 'block' : 'none';
+        });
+      });
+    });
+  </script>
+
 </body>
 
 </html>
